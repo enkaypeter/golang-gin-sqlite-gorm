@@ -6,15 +6,13 @@ COPY . .
 RUN go get -d -v ./...
 RUN go install -v ./...
 
+RUN go get github.com/gin-gonic/gin
 RUN go get github.com/codegangsta/gin
 RUN go get github.com/mattn/go-sqlite3
 RUN go get github.com/jinzhu/gorm/dialects/sqlite
-#RUN go-wrapper download
-#RUN go-wrapper install
-
+RUN go get github.com/jinzhu/inflection
 ENV PORT 8080
 
 EXPOSE 3000
-
 
 CMD gin run
